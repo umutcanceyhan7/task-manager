@@ -73,13 +73,17 @@ app.get('/tasks', (req, res) => {
 
 app.get('/tasks/:id', (req, res) => {
     const _id = req.params.id
+    console.log(_id)
     Task.findById(_id).then((task) => {
         if(!task) {
-         return res.status(404).send()
+            console.log(!task)
+         return res.status(404).send('bunu görmeliyim')
         }
-        else{res.send(task)}
+        else{ 
+            console.log('bamgüm')
+         res.send(task)}
     }).catch((e) => {
-        res.status(500).send()
+        res.status(500).send('adsd')
     })
 })
 
